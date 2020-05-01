@@ -1,9 +1,23 @@
+//buildscript里是gradle脚本执行所需依赖，分别是对应的maven库和插件
 buildscript {
     repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        jcenter()
+        google()
         mavenCentral()
     }
 
     dependencies {
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath "com.android.tools.build:gradle:3.3.2"
+    }
+}
+
+//allprojects里是项目本身需要的依赖
+allprojects {
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        jcenter()
+        google()
+        mavenCentral()
     }
 }
