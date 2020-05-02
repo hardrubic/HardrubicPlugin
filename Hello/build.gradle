@@ -1,6 +1,28 @@
 apply plugin: 'groovy'
+apply plugin: 'maven-publish'
 
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId 'com.hardrubic.plugin'
+            artifactId 'Hello'
+            version '1.0.0'
+            from components.java
+        }
+    }
+}
+
+//发布到网上仓库，或者本地路径
+publishing {
+    repositories {
+        maven {
+            // change to point to your repo, e.g. http://my.org/repo
+            url uri('../myplugin')
+        }
+    }
 }
