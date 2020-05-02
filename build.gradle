@@ -5,10 +5,15 @@ buildscript {
         jcenter()
         google()
         mavenCentral()
+
+        maven {
+            url uri('./myplugin')
+        }
     }
 
     dependencies {
         classpath "com.android.tools.build:gradle:3.3.2"
+        classpath "com.hardrubic.plugin:Hello:1.0.0"
     }
 }
 
